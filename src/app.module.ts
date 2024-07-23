@@ -22,6 +22,7 @@ import { QuestsModule } from "./quests/quests.module"
       isGlobal: true,
     }),
     GraphQLModule.forRoot<MercuriusDriverConfig>({
+      autoSchemaFile: true,
       driver: MercuriusDriver,
       debug: true,
       graphiql: true,
