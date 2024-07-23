@@ -8,6 +8,6 @@ export class QuestEntity {
   @Column()
   name: string
 
-  @Column()
-  eth_reward: bigint
+  @Column({ type: "bigint" })
+  eth_reward: BigInt
 }
