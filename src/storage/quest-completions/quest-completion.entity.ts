@@ -8,7 +8,7 @@ import {
 import { UserEntity } from "../users/user.entity"
 import { QuestEntity } from "../quests/quest.entity"
 
-@Entity()
+@Entity("quest_completions")
 export class QuestCompletionEntity {
   @PrimaryGeneratedColumn()
   id: bigint

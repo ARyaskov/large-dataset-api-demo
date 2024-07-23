@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
-@Entity()
+@Entity("quests")
 export class QuestEntity {
   @PrimaryGeneratedColumn()
   id: bigint
