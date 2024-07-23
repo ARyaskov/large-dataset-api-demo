@@ -14,6 +14,8 @@ export const storageProviders = [
       entities: [__dirname + "/**/*.entity{.ts,.js}"],
       migrationsRun: true,
       migrations: [__dirname + "/**/migrations/*.js"],
+      logging: ["query", "error"],
+      parseInt8: true,
     }),
     inject: [ConfigService],
   }),
