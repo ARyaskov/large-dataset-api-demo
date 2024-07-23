@@ -2,6 +2,9 @@ import { Injectable } from "@nestjs/common"
 import { InjectRepository } from "@nestjs/typeorm"
 import { QuestCompletionEntity } from "../quest-completions/quest-completion.entity"
 import { Repository } from "typeorm"
+import { Quest } from "../../quests/models/quest.model"
+import { QuestEntity } from "./quest.entity"
+import { QuestWithCompletionCount } from "../../quests/models/quest-with-completion-count.model"
 
 @Injectable()
 export class QuestsStorageService {
@@ -10,14 +13,24 @@ export class QuestsStorageService {
     private readonly questCompletionsRepository: Repository<QuestCompletionEntity>,
   ) {}
 
-  getMostPopularQuests(limit: number = 10) {
-    return this.questCompletionsRepository
+  async getMostPopularQuests(
+    limit: number = 10,
+  ): Promise<QuestWithCompletionCount[]> {
+    const rawResults = await this.questCompletionsRepository
       .createQueryBuilder("qc")
-      .select("qc.quest_id, COUNT(qc.id) as completion_count")
-      .groupBy("qc.quest_id")
+      .select([
+        "q.id AS id",
+        "q.name AS name",
+        "q.eth_reward AS eth_reward",
+        "COUNT(qc.id) AS completion_count",
+      ])
+      .innerJoin(QuestEntity, "q", "q.id = qc.quest_id")
+      .groupBy("q.id")
       .orderBy("completion_count", "DESC")
       .limit(limit)
-      .getRawMany()
+      .getRawMany<QuestWithCompletionCount>()
+
+    return rawResults
   }
 
   getTopPayingQuests(limit: number = 10) {
