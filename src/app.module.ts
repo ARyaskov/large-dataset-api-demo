@@ -29,7 +29,7 @@ import { QuestsModule } from "./quests/quests.module"
       resolvers: { BigInt: BigIntResolver },
     }),
     StorageModule,
-    QuestsModule
+    QuestsModule,
   ],
 })
 export class AppModule {}
