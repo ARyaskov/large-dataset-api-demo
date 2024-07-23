@@ -9,9 +9,9 @@
     "build": "nest build",
     "build:windows": "yarnpkg rimraf ./dist/ && yarnpkg format && tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
+    "start": "nest start --builder swc",
+    "start:dev": "nest start --watch --builder swc",
+    "start:debug": "nest start --debug --watch --builder swc",
     "start:prod": "node dist/main"
   },
   "dependencies": {
@@ -21,6 +21,8 @@
     "@nestjs/bull": "^10.1.1",
     "@nestjs/common": "^10.0.5",
     "@nestjs/core": "^10.0.5",
+    "@nestjs/graphql": "^12.2.0",
+    "@nestjs/mercurius": "^12.2.0",
     "@nestjs/platform-fastify": "^10.3.10",
     "@nestjs/platform-socket.io": "^10.3.10",
     "@nestjs/platform-ws": "^10.3.10",
@@ -28,7 +30,10 @@
     "@nestjs/websockets": "^10.3.10",
     "bull": "^4.15.1",
     "fastify": "^4.28.1",
+    "graphql": "^16.9.0",
+    "joi": "^17.13.3",
     "luxon": "^3.4.4",
+    "mercurius": "^14.1.0",
     "pg": "^8.12.0",
     "typeorm": "^0.3.20"
   },
@@ -37,6 +42,9 @@
     "@nestjs/config": "^3.2.3",
     "@nestjs/schematics": "^10.1.2",
     "@nestjs/testing": "^10.3.10",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.0",
+    "prettier": "^3.3.3",
     "rimraf": "^5.0.8"
   }
 }
