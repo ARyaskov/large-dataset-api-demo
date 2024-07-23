@@ -10,5 +10,5 @@ export class Quest {
   name: string
 
   @Field(() => GraphQLBigInt)
-  eth_reward: BigInt
+  eth_reward: bigint
 }
