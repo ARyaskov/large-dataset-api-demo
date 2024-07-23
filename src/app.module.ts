@@ -4,6 +4,8 @@ import { MercuriusDriver, MercuriusDriverConfig } from "@nestjs/mercurius"
 import { ConfigModule } from "@nestjs/config"
 import * as Joi from "joi"
 import { StorageModule } from "./storage/storage.module"
+import { BigIntResolver } from "graphql-scalars"
+import { QuestsModule } from "./quests/quests.module"
 
 @Module({
   imports: [
@@ -24,8 +26,10 @@ import { StorageModule } from "./storage/storage.module"
       debug: true,
       graphiql: true,
       path: "/api/v0/graphql",
+      resolvers: { BigInt: BigIntResolver },
     }),
     StorageModule,
+    QuestsModule
   ],
 })
 export class AppModule {}
