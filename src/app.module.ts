@@ -7,6 +7,8 @@ import { StorageModule } from "./storage/storage.module"
 import { BigIntResolver } from "graphql-scalars"
 import { QuestsModule } from "./quests/quests.module"
 
+const isProduction = process.env.NODE_ENV === "production"
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,8 +26,8 @@ import { QuestsModule } from "./quests/quests.module"
     GraphQLModule.forRoot<MercuriusDriverConfig>({
       autoSchemaFile: true,
       driver: MercuriusDriver,
-      debug: true,
-      graphiql: true,
+      debug: !isProduction,
+      graphiql: !isProduction,
       path: "/api/v0/graphql",
       resolvers: { BigInt: BigIntResolver },
     }),

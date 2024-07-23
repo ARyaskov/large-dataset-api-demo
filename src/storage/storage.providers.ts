@@ -1,6 +1,8 @@
 import { TypeOrmModule } from "@nestjs/typeorm"
 import { ConfigModule, ConfigService } from "@nestjs/config"
 
+const isProduction = process.env.NODE_ENV === "production"
+
 export const storageProviders = [
   TypeOrmModule.forRootAsync({
     imports: [ConfigModule],
@@ -14,7 +16,7 @@ export const storageProviders = [
       entities: [__dirname + "/**/*.entity{.ts,.js}"],
       migrationsRun: true,
       migrations: [__dirname + "/**/migrations/*.js"],
-      logging: ["query", "error"],
+      logging: !isProduction ? ["query", "error"] : [],
       parseInt8: true,
     }),
     inject: [ConfigService],
