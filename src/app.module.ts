@@ -3,6 +3,7 @@ import { GraphQLModule } from "@nestjs/graphql"
 import { MercuriusDriver, MercuriusDriverConfig } from "@nestjs/mercurius"
 import { ConfigModule } from "@nestjs/config"
 import * as Joi from "joi"
+import { StorageModule } from "./storage/storage.module"
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import * as Joi from "joi"
       graphiql: true,
       path: "/api/v0/graphql",
     }),
+    StorageModule,
   ],
 })
 export class AppModule {}
