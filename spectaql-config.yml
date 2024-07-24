@@ -1,0 +1,33 @@
+spectaql:
+  logoFile: docs/logo.png
+  faviconFile: docs/favicon.png
+  displayAllServers: true
+
+introspection:
+  removeTrailingPeriodFromDescriptions: false
+  schemaFile: ./schema.graphql
+  dynamicExamplesProcessingModule: ./examples/customizations/examples
+  queryNameStrategy: capitalizeFirst
+  fieldExpansionDepth: 2
+
+  spectaqlDirective:
+    enable: true
+
+extensions:
+  graphqlScalarExamples: true
+
+info:
+  title: Large Dataset API Demo GraphQL API Reference
+  description: This is a documentation for Large Dataset API Demo services ecosystem.
+  termsOfService: https://toivo.tech/legal/AR-PCTC.html
+  contact:
+    name: Andrei Riaskov
+    url: https://github.com/ARyaskov
+  license:
+    name: Andrei Riaskov Public Code License
+    url: https://toivo.tech/legal/AR-PCTC.html
+
+servers:
+  - url: https://large-dataset-api-demo.toivo.tech/api/v0/graphql
+    description: Production
+    production: true

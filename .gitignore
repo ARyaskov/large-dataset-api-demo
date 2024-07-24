@@ -295,4 +295,4 @@ fabric.properties
 .idea/
 
 postgres-data/
-
+schema.graphql
