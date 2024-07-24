@@ -40,6 +40,8 @@ $ yarn start
 $ yarn docs:view
 ```
 
+Alternatively you can visit [ready-to-read docs page](https://toivo.tech/large-dataset-api-demo/docs/)
+
 ## Credentials
 
 Project Logo in Docs (logo.png + favicon.png): https://myfreelogomaker.com/
