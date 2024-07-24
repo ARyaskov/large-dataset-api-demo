@@ -110,6 +110,26 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <p> Returns a <a href="#definition-Float"><code>Float!</code></a>
                   </p>
                 </div>
+                <div class="operation-arguments doc-copy-section">
+                  <h5>Arguments</h5>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span class="property-name"><code>id</code></span> - <span class="property-type"><a href="#definition-BigInt"><code>BigInt!</code></a></span>
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="doc-examples">
                 <h4 class="example-heading">Example</h4>
@@ -117,9 +137,18 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Query</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> GetTotalRewardETHForUser <span class="hljs-tag">{
-  <span class="hljs-symbol">getTotalRewardETHForUser</span>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> GetTotalRewardETHForUser<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> BigInt!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">getTotalRewardETHForUser<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span></span>
 }</span></span>
+</code></pre>
+                    </body>
+                  </html>
+                </div>
+                <div class="example-section example-section-is-code operation-variables-example">
+                  <h5>Variables</h5>
+                  <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">}</span>
 </code></pre>
                     </body>
                   </html>
@@ -128,7 +157,7 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Response</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">"data"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">"getTotalRewardETHForUser"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">123.45</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">}</span>
+                    <body><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">"data"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">"getTotalRewardETHForUser"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">987.65</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">}</span>
 </code></pre>
                     </body>
                   </html>
@@ -150,6 +179,26 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <p> Returns a <a href="#definition-Float"><code>Float!</code></a>
                   </p>
                 </div>
+                <div class="operation-arguments doc-copy-section">
+                  <h5>Arguments</h5>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span class="property-name"><code>id</code></span> - <span class="property-type"><a href="#definition-BigInt"><code>BigInt!</code></a></span>
+                        </td>
+                        <td>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="doc-examples">
                 <h4 class="example-heading">Example</h4>
@@ -157,9 +206,18 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Query</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> GetTotalRewardUSDForUser <span class="hljs-tag">{
-  <span class="hljs-symbol">getTotalRewardUSDForUser</span>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> GetTotalRewardUSDForUser<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> BigInt!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">getTotalRewardUSDForUser<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span></span>
 }</span></span>
+</code></pre>
+                    </body>
+                  </html>
+                </div>
+                <div class="example-section example-section-is-code operation-variables-example">
+                  <h5>Variables</h5>
+                  <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">}</span>
 </code></pre>
                     </body>
                   </html>
@@ -272,8 +330,8 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
   <span class="hljs-attr">"data"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">"topPayingQuests"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
       <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"4"</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"xyz789"</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"id"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"abc123"</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">"eth_reward"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
       <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
@@ -322,15 +380,6 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                 </div>
               </div>
               <div class="doc-examples">
-                <div class="example-section example-section-is-code">
-                  <h5>Example</h5>
-                  <html>
-                    <head></head>
-                    <body><pre><code class="hljs language-json"><span class="hljs-literal"><span class="hljs-keyword">true</span></span>
-</code></pre>
-                    </body>
-                  </html>
-                </div>
               </div>
             </div>
           </section>
@@ -351,7 +400,7 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Example</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-json"><span class="hljs-number">123.45</span>
+                    <body><pre><code class="hljs language-json"><span class="hljs-number">987.65</span>
 </code></pre>
                     </body>
                   </html>
@@ -376,7 +425,7 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Example</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol">"4"</span>
+                    <body><pre><code class="hljs language-json"><span class="hljs-number">4</span>
 </code></pre>
                     </body>
                   </html>
@@ -401,7 +450,7 @@ https://large-dataset-api-demo.toivo.tech/api/v0/graphql
                   <h5>Example</h5>
                   <html>
                     <head></head>
-                    <body><pre><code class="hljs language-json"><span class="hljs-number">123</span>
+                    <body><pre><code class="hljs language-json"><span class="hljs-number">987</span>
 </code></pre>
                     </body>
                   </html>

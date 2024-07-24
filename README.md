@@ -35,6 +35,10 @@ $ docker compose up
 ```bash
 $ yarn start
 ```
+- You may want to observe a well-formatted GraphQL API docs, for this purpose please run:
+```bash
+$ yarn docs:view
+```
 
 ## Credentials
 
