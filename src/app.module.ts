@@ -24,7 +24,7 @@ const isProduction = process.env.NODE_ENV === "production"
       isGlobal: true,
     }),
     GraphQLModule.forRoot<MercuriusDriverConfig>({
-      autoSchemaFile: true,
+      autoSchemaFile: isProduction ? false : join(process.cwd(), "schema.graphql"),
       driver: MercuriusDriver,
       debug: !isProduction,
       graphiql: !isProduction,
