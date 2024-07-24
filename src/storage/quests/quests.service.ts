@@ -5,10 +5,13 @@ import { Repository } from "typeorm"
 import { Quest } from "../../quests/models/quest.model"
 import { QuestEntity } from "./quest.entity"
 import { QuestWithCompletionCount } from "../../quests/models/quest-with-completion-count.model"
+import { QuestWithPaidEth } from "../../quests/models/quest-with-paid-eth.model"
 
 @Injectable()
 export class QuestsStorageService {
   constructor(
+    @InjectRepository(QuestEntity)
+    private questRepository: Repository<QuestEntity>,
     @InjectRepository(QuestCompletionEntity)
     private readonly questCompletionsRepository: Repository<QuestCompletionEntity>,
   ) {}
@@ -16,32 +19,58 @@ export class QuestsStorageService {
   async getMostPopularQuests(
     limit: number = 10,
   ): Promise<QuestWithCompletionCount[]> {
-    const rawResults = await this.questCompletionsRepository
-      .createQueryBuilder("qc")
+    return await this.questRepository
+      .createQueryBuilder("q")
       .select([
         "q.id AS id",
         "q.name AS name",
         "q.eth_reward AS eth_reward",
-        "COUNT(qc.id) AS completion_count",
+        "COALESCE(qc.completion_count, 0) AS completion_count",
       ])
-      .innerJoin(QuestEntity, "q", "q.id = qc.quest_id")
-      .groupBy("q.id")
+      .leftJoin(
+        (subQuery) => {
+          return subQuery
+            .select("quest_id")
+            .addSelect("COUNT(*) AS completion_count")
+            .from(QuestCompletionEntity, "qc")
+            .groupBy("quest_id")
+        },
+        "qc",
+        "qc.quest_id = q.id",
+      )
       .orderBy("completion_count", "DESC")
+      .addOrderBy("q.id", "ASC")
       .limit(limit)
       .getRawMany<QuestWithCompletionCount>()
-
-    return rawResults
   }
 
-  getTopPayingQuests(limit: number = 10) {
-    return this.questCompletionsRepository
-      .createQueryBuilder("qc")
-      .innerJoin("qc.quest", "q")
-      .select("qc.quest_id, SUM(q.eth_reward) as total_eth")
-      .groupBy("qc.quest_id")
-      .orderBy("total_eth", "DESC")
+  async getTopPayingQuests(limit: number = 10): Promise<QuestWithPaidEth[]> {
+    return await this.questRepository
+      .createQueryBuilder("q")
+      .select([
+        "q.id AS id",
+        "q.name AS name",
+        "q.eth_reward AS eth_reward",
+        "COALESCE(qc.completion_count, 0) AS completion_count",
+        "COALESCE(qc.total_paid_eth, 0) AS paid_eth",
+      ])
+      .leftJoin(
+        (subQuery) => {
+          return subQuery
+            .select("quest_id")
+            .addSelect("COUNT(*) AS completion_count")
+            .addSelect("SUM(q.eth_reward) AS total_paid_eth")
+            .from(QuestCompletionEntity, "qc")
+            .innerJoin("qc.quest", "q")
+            .groupBy("quest_id")
+        },
+        "qc",
+        "qc.quest_id = q.id",
+      )
+      .orderBy("paid_eth", "DESC")
+      .addOrderBy("q.id", "ASC")
       .limit(limit)
-      .getRawMany()
+      .getRawMany<QuestWithPaidEth>()
   }
 
   async getTotalRewardForUser(userId: bigint) {
