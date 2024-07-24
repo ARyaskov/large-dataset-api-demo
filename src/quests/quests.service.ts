@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common"
 import { QuestsStorageService } from "../storage/quests/quests.service"
-import axios from "axios"
+import { QuestWithCompletionCount } from "./models/quest-with-completion-count.model"
 
 @Injectable()
 export class QuestsService {
@@ -9,20 +9,15 @@ export class QuestsService {
     private questsStorageService: QuestsStorageService,
   ) {}
 
-  async getMostPopularQuests() {
-    return this.questsStorageService.getMostPopularQuests()
+  async getMostPopularQuests(): Promise<QuestWithCompletionCount[]> {
+    const res = await this.questsStorageService.getMostPopularQuests()
+    return res.map((e) => ({
+      ...e,
+      eth_reward: BigInt(BigInt(e.eth_reward) / 10n ** 18n),
+    }))
   }
 
   async getTopPayingQuests() {
-    return this.questsStorageService.getTopPayingQuests()
-  }
-
-  async getTotalRewardInUSDForUser(userId: number) {}
-
-  private async getEthPriceOnDate(date: Date): Promise<number> {
-    const response = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/ethereum/history?date=${date.toISOString().split("T")[0]}`,
-    )
-    return response.data.market_data.current_price.usd
+    return await this.questsStorageService.getTopPayingQuests()
   }
 }
