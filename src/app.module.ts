@@ -6,6 +6,8 @@ import * as Joi from "joi"
 import { StorageModule } from "./storage/storage.module"
 import { BigIntResolver } from "graphql-scalars"
 import { QuestsModule } from "./quests/quests.module"
+import { join } from "path"
+import { UsersModule } from "./users/users.module"
 
 const isProduction = process.env.NODE_ENV === "production"
 
@@ -33,6 +35,7 @@ const isProduction = process.env.NODE_ENV === "production"
     }),
     StorageModule,
     QuestsModule,
+    UsersModule,
   ],
 })
 export class AppModule {}
