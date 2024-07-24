@@ -70,7 +70,7 @@ export class QuestsStorageService {
       .orderBy("paid_eth", "DESC")
       .addOrderBy("q.id", "ASC")
       .limit(limit)
-      .getRawMany<QuestWithPaidEth>()
+      .getRawMany()
   }
 
   async getTotalRewardForUser(userId: bigint) {
