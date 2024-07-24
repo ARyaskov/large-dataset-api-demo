@@ -20,4 +20,13 @@ export class QuestCompletionsStorageService {
 
     return BigInt(result.totalReward || 0)
   }
+
+  async byUserId(userId: bigint): Promise<QuestCompletionEntity[]> {
+    return await this.questCompletionRepository
+      .createQueryBuilder("qc")
+      .select(["qc.completed_at", "q.eth_reward"])
+      .innerJoin("qc.quest", "q")
+      .where("qc.user_id = :userId", { userId })
+      .getMany()
+  }
 }
