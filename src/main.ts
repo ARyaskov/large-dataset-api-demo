@@ -49,7 +49,7 @@ async function bootstrap() {
   })
 
   const host = configService.get<string>("HOST") || "0.0.0.0"
-  const port = configService.get<number>("PORT") || 3000
+  const port = configService.get<number>("PORT") || 3033
 
   await app.listen(port, host)
   console.log(`Running with HOST=${host} PORT=${port}`)
