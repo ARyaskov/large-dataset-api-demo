@@ -24,7 +24,7 @@
 
 - Install dependencies
 ```bash
-$ yarn install
+$ yarn
 ```
 - Do copy `example.env` to `.env`, fill it with actual values
 - Run Docker Compose
