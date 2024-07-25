@@ -51,7 +51,7 @@
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.14.12",
     "prettier": "^3.3.3",
-    "rimraf": "^5.0.9",
+    "rimraf": "^6.0.1",
     "spectaql": "^3.0.1",
     "typescript": "^5.5.4"
   }
