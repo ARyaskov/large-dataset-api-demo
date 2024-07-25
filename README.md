@@ -14,10 +14,10 @@
 
 ## Requirements
 
-* Node.js 22
-* TypeScript 5.5
-* yarnpkg v4
-* Docker 4.32
+* Node.js 22+
+* TypeScript 5.5+
+* yarnpkg v4+
+* Docker 4.32+
 
 
 ## How to run
