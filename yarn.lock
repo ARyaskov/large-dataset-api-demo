@@ -504,29 +504,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/bull-shared@npm:^10.1.1":
-  version: 10.1.1
-  resolution: "@nestjs/bull-shared@npm:10.1.1"
+"@nestjs/bull-shared@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "@nestjs/bull-shared@npm:10.2.0"
   dependencies:
-    tslib: "npm:2.6.2"
+    tslib: "npm:2.6.3"
   peerDependencies:
     "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
     "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
-  checksum: 10c0/55355b17e88c68f9c629bcbf7c6e5be588a7bd5a6bcb6d838748a42d363cc9a4555b86c32956d7b4c20bcc7ee9cd78e178dbe5fff62f89c78676fe30eeec2ee1
+  checksum: 10c0/67308d9734a487469dad3d04f297146e4251bc905b020741a26d5fb9a69f5b24be04a384a5c2331caef827795dbfe0f42846edf1125326f04b5e61a2c785e409
   languageName: node
   linkType: hard
 
-"@nestjs/bull@npm:^10.1.1":
-  version: 10.1.1
-  resolution: "@nestjs/bull@npm:10.1.1"
+"@nestjs/bull@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "@nestjs/bull@npm:10.2.0"
   dependencies:
-    "@nestjs/bull-shared": "npm:^10.1.1"
-    tslib: "npm:2.6.2"
+    "@nestjs/bull-shared": "npm:^10.2.0"
+    tslib: "npm:2.6.3"
   peerDependencies:
     "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
     "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
     bull: ^3.3 || ^4.0.0
-  checksum: 10c0/a5deed7ea22babb00dbbab0ae2af797a0b619ab53185b1ca8b1ed1bdc2ce58d7ab5b1f5477123f85324e305f2b0ed5d469398bf692dbb6ca678bd01847bb0049
+  checksum: 10c0/ad0464ab19da38db2d8d3c1868c048ea5be5e8b4d49b22d70146878e29bd46ffd77c028655c4cc0c9f2f0e37831ee28c8c3d271145ff8db6bc57744dcc6d1cd4
   languageName: node
   linkType: hard
 
@@ -4877,7 +4877,7 @@ __metadata:
     "@fastify/csrf-protection": "npm:^6.4.1"
     "@fastify/helmet": "npm:^11.1.1"
     "@fastify/secure-session": "npm:^7.5.1"
-    "@nestjs/bull": "npm:^10.1.1"
+    "@nestjs/bull": "npm:^10.2.0"
     "@nestjs/cli": "npm:^10.4.2"
     "@nestjs/common": "npm:^10.1.3"
     "@nestjs/config": "npm:^3.2.3"
@@ -7650,13 +7650,6 @@ __metadata:
     minimist: "npm:^1.2.6"
     strip-bom: "npm:^3.0.0"
   checksum: 10c0/09a5877402d082bb1134930c10249edeebc0211f36150c35e1c542e5b91f1047b1ccf7da1e59babca1ef1f014c525510f4f870de7c9bda470c73bb4e2721b3ea
-  languageName: node
-  linkType: hard
-
-"tslib@npm:2.6.2":
-  version: 2.6.2
-  resolution: "tslib@npm:2.6.2"
-  checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb
   languageName: node
   linkType: hard
 
