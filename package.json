@@ -49,7 +49,7 @@
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.1",
     "@types/luxon": "^3.4.2",
-    "@types/node": "^20.14.12",
+    "@types/node": "^22.2.0",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "spectaql": "^3.0.1",
